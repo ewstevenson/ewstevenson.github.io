@@ -16,6 +16,18 @@ body {
     align-items: center;
 }
 
+.mainContainer {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 100vh;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .main-image-container {
     width: 80%;
     max-width: 800px;

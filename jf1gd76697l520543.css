@@ -5,8 +5,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+    justify-content: flex-start; /* Changed from center to flex-start */
+    min-height: 100vh; /* Use min-height instead of height */
     background-color: #f0f0f0;
 }
 

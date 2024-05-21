@@ -1,28 +1,10 @@
 <!DOCTYPE html>
 <html>
-	<!-- this is a comment for maxwell -->
-  <head>
-    <style>
-      html, body {
-          margin: 0;
-          padding: 0;
-          height: 100%;
-          overflow: hidden;
-      }
-
-      body {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-      }
-
-      img {
-          max-width: 75%;
-          max-height: 75%;
-          object-fit: cover;
-      }
-  </style>
-
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="jf1gd76697l520543.css">
 
     <title>JF1GD76697L520543</title>
   </head>
@@ -32,13 +14,23 @@
       </p > VIN  <font size=19><b>JF1GD76697L520543</b></font></h1>
     </center>
    
-    <img src="img/a_003.jpeg" />
+    <div class="container">
+      <div class="main-image-container">
+          <img id="mainImage" src="img/a_003.jpeg" alt="Main Image">
+      </div>
+      <div class="thumbnails-container">
+          <img class="thumbnail" src="img/00001 (1).jpg" alt="Thumbnail 1" onclick="updateMainImage('image1.jpg')">
+          <img class="thumbnail" src="img/00001.jpg" alt="Thumbnail 2" onclick="updateMainImage('image2.jpg')">
+          <img class="thumbnail" src="img/00002 (1).jpg" alt="Thumbnail 3" onclick="updateMainImage('image3.jpg')">
+          <img class="thumbnail" src="img/00002.jpg" alt="Thumbnail 4" onclick="updateMainImage('image4.jpg')">
+      </div>
+  </div>
+  <script src="script.js"></script>
 
     If you have an information regarding this car, please contact JF1GD76697L520543@gmail.com
 
       <a href="https://www.iwsti.com/threads/enoxards-2007-obp-dom-3-xtr-440-400.119018/">IWSTI Journal</a></p>
 
-      <b>JF1GD76697L520543</b>
 
 </center>
 </body>

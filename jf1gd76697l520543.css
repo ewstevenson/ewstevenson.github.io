@@ -1,38 +1,200 @@
+:root {
+    --bg: #f2f1ee;
+    --surface: #ffffff;
+    --ink: #17181a;
+    --muted: #5d6168;
+    --line: #e2e0db;
+    --accent: #0b4ea2;
+    --accent-ink: #ffffff;
+    --alert: #b3261e;
+    --alert-bg: #fdecea;
+    --frame: #0f1012;
+    --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
 body {
-    font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Changed from center to flex-start */
-    min-height: 100vh; /* Use min-height instead of height */
-    background-color: #f0f0f0;
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
 }
 
-.container {
+a { color: var(--accent); }
+
+.page {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 32px 16px 56px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 20px;
 }
 
-.mainContainer {
-    width: 100%;
-    max-width: 1200px;
-    min-height: 100vh;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.card {
+    background-color: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: clamp(20px, 4vw, 40px);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
 }
+
+/* ---------- hero ---------- */
+
+.hero { text-align: center; }
+
+.badge {
+    display: inline-block;
+    margin: 0 0 16px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background-color: var(--alert-bg);
+    color: var(--alert);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+h1 {
+    margin: 0 0 24px;
+    font-size: clamp(28px, 5vw, 44px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+}
+
+.vin-plate {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 14px;
+    max-width: 100%;
+    padding: 12px 14px 12px 18px;
+    border-radius: 10px;
+    background-color: var(--frame);
+    color: #fff;
+}
+
+.vin-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: #9aa0a8;
+}
+
+.vin-value {
+    font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: clamp(18px, 4.2vw, 28px);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    overflow-wrap: anywhere;
+}
+
+.copy-btn {
+    border: 1px solid #3a3d42;
+    border-radius: 6px;
+    background: transparent;
+    color: #d5d8dc;
+    font: inherit;
+    font-size: 13px;
+    padding: 4px 10px;
+    cursor: pointer;
+}
+
+.copy-btn:hover, .copy-btn:focus-visible { background-color: #26282c; }
+
+.facts {
+    margin: 24px 0 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px 40px;
+}
+
+.facts dt {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.facts dd {
+    margin: 2px 0 0;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.actions {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+    padding: 12px 18px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background-color: var(--surface);
+    color: var(--ink);
+    font-weight: 600;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition: border-color 0.15s, background-color 0.15s;
+}
+
+.btn:hover, .btn:focus-visible { border-color: var(--ink); }
+
+.btn.primary {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+}
+
+.btn.primary:hover, .btn.primary:focus-visible { background-color: #083d80; }
+
+.btn-label {
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+/* ---------- story ---------- */
+
+.story p {
+    max-width: 68ch;
+    margin: 0 auto;
+}
+
+.story p + p { margin-top: 1em; }
+
+/* ---------- gallery ---------- */
+
+.gallery-intro {
+    max-width: 68ch;
+    margin: 0 auto 20px;
+    text-align: center;
+    color: var(--muted);
+}
+
 .main-image-container {
     position: relative;
-    width: 80%;
     max-width: 800px;
-    margin-bottom: 8px;
+    margin: 0 auto;
 }
 
 /* Fixed 4:3 frame (most photos are 4:3) so the arrows never move between photos. */
@@ -41,9 +203,8 @@ body {
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: contain;
-    background-color: #111;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    background-color: var(--frame);
+    border-radius: 10px;
 }
 
 .nav-btn {
@@ -65,45 +226,72 @@ body {
 }
 
 .nav-btn:hover,
-.nav-btn:focus-visible {
-    background-color: rgba(0, 0, 0, 0.8);
-}
+.nav-btn:focus-visible { background-color: rgba(0, 0, 0, 0.85); }
 
 .nav-btn.prev { left: 10px; }
 .nav-btn.next { right: 10px; }
 
 .image-counter {
-    margin-bottom: 20px;
-    color: #555;
+    max-width: 800px;
+    margin: 10px auto 18px;
+    display: flex;
+    justify-content: space-between;
     font-size: 14px;
+    color: var(--muted);
 }
 
-@media (max-width: 600px) {
-    .main-image-container { width: 100%; }
-    .nav-btn { width: 40px; height: 40px; font-size: 30px; line-height: 36px; }
-}
-
+/* Scrollable thumbnail panel keeps the page short; the active thumb is kept in view by JS. */
 .thumbnails-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
+    max-height: 340px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background-color: #f7f6f3;
 }
 
 .thumbnail {
     width: 100px;
     height: 75px;
     object-fit: cover;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid transparent;
+    border-radius: 6px;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.15s, border-color 0.15s;
 }
 
-.thumbnail:hover {
-    transform: scale(1.05);
+.thumbnail:hover { transform: scale(1.05); }
+
+.thumbnail.active { border-color: var(--accent); }
+
+/* ---------- call to action ---------- */
+
+.cta { text-align: center; }
+
+.cta h2 {
+    margin: 0 0 20px;
+    font-size: clamp(20px, 3.4vw, 28px);
+    line-height: 1.3;
 }
 
-.thumbnail.active {
-    border: 3px solid #1a5fb4;
+/* Keep the address on one line; it is long, so it gets a slightly smaller size. */
+.cta h2 a {
+    display: inline-block;
+    font-size: 0.85em;
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    body { font-size: 16px; }
+    .page { padding-top: 16px; gap: 14px; }
+    .nav-btn { width: 40px; height: 40px; font-size: 30px; line-height: 36px; }
+    .thumbnail { width: 76px; height: 57px; }
+    .thumbnails-container { max-height: 260px; gap: 6px; padding: 8px; }
+    .btn { width: 100%; justify-content: center; flex-direction: column; gap: 0; padding: 10px 14px; }
+    .cta h2 { font-size: 19px; }
+    .badge { font-size: 11px; letter-spacing: 0.05em; padding: 6px 12px; }
 }

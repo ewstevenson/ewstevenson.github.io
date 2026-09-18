@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jf1gd76697l520543.com/sitemap.xml

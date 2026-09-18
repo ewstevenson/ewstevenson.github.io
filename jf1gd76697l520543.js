@@ -1,11 +1,15 @@
 let thumbnails = [];
 let currentIndex = 0;
 
+// Thumbnails show img/thumb/<name>; the large image is img/web/<name>; the original is img/<name>.
+const largeSrc = t => t.dataset.full || t.getAttribute('src');
+
 function showImage(index) {
     if (!thumbnails.length) return;
     currentIndex = (index + thumbnails.length) % thumbnails.length;
     const thumb = thumbnails[currentIndex];
-    document.getElementById('mainImage').src = thumb.getAttribute('src');
+    document.getElementById('mainImage').src = largeSrc(thumb);
+    document.getElementById('fullSizeLink').href = largeSrc(thumb).replace('img/web/', 'img/');
 
     thumbnails.forEach(t => t.classList.remove('active'));
     thumb.classList.add('active');
@@ -15,13 +19,13 @@ function showImage(index) {
     // Warm the cache for the neighbours so next/prev feel instant.
     [currentIndex + 1, currentIndex - 1].forEach(i => {
         const n = thumbnails[(i + thumbnails.length) % thumbnails.length];
-        new Image().src = n.getAttribute('src');
+        new Image().src = largeSrc(n);
     });
 }
 
 // Called by each thumbnail's onclick.
 function updateMainImage(imageSrc) {
-    const index = thumbnails.findIndex(t => t.getAttribute('src') === imageSrc);
+    const index = thumbnails.findIndex(t => largeSrc(t) === imageSrc);
     if (index !== -1) showImage(index);
     else document.getElementById('mainImage').src = imageSrc;
 
@@ -36,7 +40,7 @@ function updateMainImage(imageSrc) {
 document.addEventListener('DOMContentLoaded', () => {
     thumbnails = Array.from(document.querySelectorAll('.thumbnail'));
     const main = document.getElementById('mainImage');
-    const start = thumbnails.findIndex(t => t.getAttribute('src') === main.getAttribute('src'));
+    const start = thumbnails.findIndex(t => largeSrc(t) === main.getAttribute('src'));
     showImage(start === -1 ? 0 : start);
 
     document.getElementById('prevBtn').addEventListener('click', () => showImage(currentIndex - 1));
